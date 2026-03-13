@@ -1,0 +1,339 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ParteAcci Policía Local</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="app-shell">
+      <aside class="desktop-sidebar">
+        <div class="brand-block">
+          <p class="brand-kicker">Policía Local</p>
+          <h1>ParteAcci</h1>
+          <p class="brand-sub">Gestión de partes de accidentes</p>
+        </div>
+        <nav class="sidebar-nav">
+          <button class="nav-item active">Dashboard</button>
+          <button class="nav-item">Nuevo parte</button>
+          <button class="nav-item">Implicados</button>
+          <button class="nav-item">Revisión</button>
+          <button class="nav-item">Exportación</button>
+        </nav>
+        <div class="sidebar-footer">
+          <p>Turno: Mañana</p>
+          <p>Agente: 0421</p>
+        </div>
+      </aside>
+
+      <main class="main-content">
+        <header class="topbar">
+          <div>
+            <p class="eyebrow">Sistema interno oficial</p>
+            <h2>Parte de accidente de tráfico</h2>
+          </div>
+          <div class="topbar-actions">
+            <button class="ghost-btn">Guardar borrador</button>
+            <button class="primary-btn">Validar parte</button>
+          </div>
+        </header>
+
+        <section class="stepper">
+          <div class="step done"><span>1</span>Dashboard</div>
+          <div class="step active"><span>2</span>Nuevo parte</div>
+          <div class="step"><span>3</span>Implicados</div>
+          <div class="step"><span>4</span>Revisión</div>
+          <div class="step"><span>5</span>Exportación</div>
+        </section>
+
+        <section class="panel" id="dashboard">
+          <div class="panel-header">
+            <h3>1. Dashboard</h3>
+            <p>Consulta rápida de historial, borradores y expedientes recientes.</p>
+          </div>
+
+          <div class="cta-grid">
+            <button class="cta-card prominent">
+              <strong>📁 Ver historial de partes</strong>
+              <span>Accede a expedientes cerrados y en curso.</span>
+            </button>
+            <button class="cta-card">
+              <strong>➕ Crear nuevo parte de accidente</strong>
+              <span>Inicia un flujo guiado con guardado automático.</span>
+            </button>
+          </div>
+
+          <div class="filters-grid">
+            <label>Buscar parte<input type="search" placeholder="Nº expediente, matrícula, DNI" /></label>
+            <label>Fecha<input type="date" /></label>
+            <label>Estado
+              <select>
+                <option>Todos</option>
+                <option>Pendiente</option>
+                <option>Validado</option>
+                <option>Borrador</option>
+              </select>
+            </label>
+            <label>Nº expediente<input type="text" placeholder="PL-2026-001" /></label>
+          </div>
+
+          <div class="recent-grid">
+            <article class="record-card">
+              <header>
+                <h4>EXP PL-2026-014</h4>
+                <span class="status done">Validado</span>
+              </header>
+              <p>Av. Constitución 44 · 07:43</p>
+              <small>2 vehículos, 1 peatón</small>
+            </article>
+            <article class="record-card">
+              <header>
+                <h4>EXP PL-2026-017</h4>
+                <span class="status pending">Pendiente</span>
+              </header>
+              <p>C/ Mayor 12 · 09:27</p>
+              <small>3 vehículos</small>
+            </article>
+            <article class="record-card draft">
+              <header>
+                <h4>EXP PL-2026-019</h4>
+                <span class="status draft">Borrador</span>
+              </header>
+              <p>Rotonda Norte · 11:09</p>
+              <small>Acceso rápido a borrador</small>
+            </article>
+          </div>
+        </section>
+
+        <section class="panel" id="nuevo-parte">
+          <div class="panel-header">
+            <h3>2. Nuevo parte de accidente</h3>
+            <p>Registro inicial de fecha, hora y localización del siniestro.</p>
+          </div>
+          <div class="form-grid">
+            <label>Fecha del accidente<input type="date" /></label>
+            <label>Hora del accidente<input type="time" /></label>
+            <label class="full">Ubicación (texto)<input type="text" placeholder="Calle, nº, referencia" /></label>
+          </div>
+          <div class="location-tools">
+            <button class="secondary-btn">📍 Usar ubicación actual</button>
+            <div class="map-placeholder">
+              <p>Vista de localización simplificada</p>
+              <small>Mapa integrado para confirmar punto del accidente</small>
+            </div>
+          </div>
+          <div class="actions-row">
+            <button class="primary-btn">Continuar</button>
+          </div>
+        </section>
+
+        <section class="panel" id="implicados">
+          <div class="panel-header">
+            <h3>3. Gestión de implicados</h3>
+            <p>Tarjetas expandibles por vehículo y peatón con estados de progreso.</p>
+          </div>
+          <div class="actions-row wrap">
+            <button class="primary-btn">Añadir vehículo</button>
+            <button class="secondary-btn">Añadir peatón</button>
+          </div>
+
+          <details class="entity-card" open>
+            <summary>
+              <strong>🚗 Vehículo A</strong>
+              <span class="status editing">En edición</span>
+            </summary>
+
+            <div class="module">
+              <h4>4. Detalle de vehículo</h4>
+              <div class="form-grid">
+                <label>Matrícula<input type="text" placeholder="1234-ABC" /></label>
+                <label>Marca<input type="text" placeholder="Marca" /></label>
+                <label>Modelo<input type="text" placeholder="Modelo" /></label>
+                <label>Color<input type="text" placeholder="Color" /></label>
+                <label>Titular<input type="text" placeholder="Nombre titular" /></label>
+                <label>Compañía aseguradora<input type="text" placeholder="Compañía" /></label>
+                <label>Número de póliza<input type="text" placeholder="Póliza" /></label>
+              </div>
+
+              <div class="doc-grid">
+                <article class="doc-card">
+                  <h5>Permiso de circulación</h5>
+                  <div class="doc-actions">
+                    <button>📷 Hacer foto</button>
+                    <button>🖼️ Galería</button>
+                  </div>
+                  <p class="thumb">Miniatura vista previa</p>
+                  <div class="doc-inline-actions">
+                    <button>Ver</button><button>Eliminar</button><button>Recapturar</button>
+                  </div>
+                  <span class="status done">OCR completado</span>
+                </article>
+
+                <article class="doc-card">
+                  <h5>Ficha ITV</h5>
+                  <div class="doc-actions">
+                    <button>📷 Hacer foto</button>
+                    <button>🖼️ Galería</button>
+                  </div>
+                  <p class="thumb">Miniatura vista previa</p>
+                  <div class="doc-inline-actions">
+                    <button>Ver</button><button>Eliminar</button><button>Recapturar</button>
+                  </div>
+                  <span class="status pending">Pendiente análisis</span>
+                </article>
+              </div>
+
+              <div class="autofill-box">
+                <p>Datos detectados automáticamente</p>
+                <button class="secondary-btn">Rellenar campos con datos analizados</button>
+                <small>Los campos pueden editarse manualmente tras el autocompletado.</small>
+              </div>
+            </div>
+
+            <div class="module">
+              <h4>5. Módulo de conductor</h4>
+              <div class="form-grid">
+                <label>Nombre<input type="text" /></label>
+                <label>Apellidos<input type="text" /></label>
+                <label>DNI/NIE<input type="text" /></label>
+                <label>Fecha de nacimiento<input type="date" /></label>
+                <label>Domicilio<input type="text" /></label>
+                <label>Teléfono<input type="tel" /></label>
+                <label>Nº permiso conducir<input type="text" /></label>
+                <label>Fecha de validez<input type="date" /></label>
+                <label>Tipo de permiso<input type="text" /></label>
+              </div>
+              <div class="doc-grid two-up">
+                <article class="doc-card compact">
+                  <h5>DNI/NIE</h5>
+                  <div class="doc-actions"><button>📷 Capturar</button><button>🖼️ Galería</button></div>
+                  <span class="status done">Análisis OCR completado</span>
+                </article>
+                <article class="doc-card compact">
+                  <h5>Permiso de conducir</h5>
+                  <div class="doc-actions"><button>📷 Capturar</button><button>🖼️ Galería</button></div>
+                  <span class="status review">Requiere revisión manual</span>
+                </article>
+              </div>
+            </div>
+
+            <div class="module">
+              <h4>6. Módulo de ocupantes/pasajeros</h4>
+              <article class="occupant-card">
+                <header>
+                  <strong>Ocupante 1</strong>
+                  <span class="status done">Completo</span>
+                </header>
+                <div class="form-grid">
+                  <label>Nombre<input type="text" /></label>
+                  <label>Apellidos<input type="text" /></label>
+                  <label>DNI/NIE<input type="text" /></label>
+                  <label>Fecha de nacimiento<input type="date" /></label>
+                  <label>Teléfono<input type="tel" /></label>
+                  <label class="full">Observaciones<textarea rows="2"></textarea></label>
+                </div>
+              </article>
+              <button class="secondary-btn">Añadir ocupante</button>
+            </div>
+          </details>
+
+          <details class="entity-card">
+            <summary><strong>🚶 Peatón</strong><span class="status missing">Falta documento</span></summary>
+            <div class="module">
+              <h4>7. Módulo de peatón</h4>
+              <div class="form-grid">
+                <label>Nombre<input type="text" /></label>
+                <label>Apellidos<input type="text" /></label>
+                <label>DNI/NIE<input type="text" /></label>
+                <label>Fecha de nacimiento<input type="date" /></label>
+                <label>Domicilio<input type="text" /></label>
+                <label>Teléfono<input type="tel" /></label>
+                <label class="full">Observaciones<textarea rows="2"></textarea></label>
+              </div>
+              <div class="doc-card compact">
+                <h5>Documento DNI/NIE peatón</h5>
+                <div class="doc-actions"><button>📷 Capturar</button><button>🖼️ Galería</button></div>
+                <span class="status missing">Sin documento</span>
+              </div>
+            </div>
+          </details>
+        </section>
+
+        <section class="panel" id="revision">
+          <div class="panel-header">
+            <h3>8. Revisión y validación</h3>
+            <p>Resumen de consistencia de datos antes de cerrar el expediente.</p>
+          </div>
+          <div class="review-grid">
+            <article class="review-card">
+              <h4>Datos generales</h4>
+              <ul>
+                <li><span class="status done">Correcto</span> Fecha y hora registradas</li>
+                <li><span class="status pending">Pendiente</span> Confirmación ubicación GPS</li>
+              </ul>
+            </article>
+            <article class="review-card">
+              <h4>Implicados y documentos</h4>
+              <ul>
+                <li><span class="status done">Validado</span> Vehículo A completo</li>
+                <li><span class="status error">Error</span> DNI peatón no adjunto</li>
+                <li><span class="status review">Requiere revisión manual</span> Permiso conducir con baja legibilidad</li>
+              </ul>
+            </article>
+          </div>
+          <div class="actions-row wrap">
+            <button class="ghost-btn">Guardar borrador</button>
+            <button class="secondary-btn">Editar secciones</button>
+            <button class="primary-btn">Validar información</button>
+            <button class="primary-btn">Generar exportación</button>
+          </div>
+        </section>
+
+        <section class="panel" id="exportacion">
+          <div class="panel-header">
+            <h3>9. Exportación final</h3>
+            <p>Conversión de datos estructurados para Excel y plantilla oficial.</p>
+          </div>
+
+          <div class="pipeline">
+            <div>1. 📷 Fotos capturadas</div>
+            <div>2. 🧠 OCR y análisis documental</div>
+            <div>3. 🧾 Campos autocompletados</div>
+            <div>4. 📊 Estructura tabular Excel</div>
+            <div>5. 🏛️ Plantilla oficial generada</div>
+          </div>
+
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr><th>Sección</th><th>Campo</th><th>Valor</th><th>Estado</th></tr>
+              </thead>
+              <tbody>
+                <tr><td>Accidente</td><td>Expediente</td><td>PL-2026-019</td><td>Listo</td></tr>
+                <tr><td>Vehículo A</td><td>Matrícula</td><td>1234-ABC</td><td>Listo</td></tr>
+                <tr><td>Conductor</td><td>DNI</td><td>12345678Z</td><td>Verificado</td></tr>
+                <tr><td>Peatón</td><td>DNI</td><td>—</td><td>Revisión</td></tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div class="actions-row wrap">
+            <button class="primary-btn">Exportar a Excel</button>
+            <button class="primary-btn">Generar parte de accidente</button>
+            <button class="secondary-btn">Descargar / compartir plantilla</button>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <nav class="mobile-bottom-bar">
+      <button>Inicio</button>
+      <button>Nuevo</button>
+      <button>Implicados</button>
+      <button>Revisión</button>
+      <button class="active">Exportar</button>
+    </nav>
+    <script src="app.js"></script>
+  </body>
+</html>
